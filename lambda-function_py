@@ -1,1 +1,12 @@
+import json
+
+def lambda_handler(event, context):
+    for record in event['Records']:
+        message = json.loads(record['body'])
+        # Process the message (e.g., perform high computational task)
+        print(f"Processed message: {message}")
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Job processed successfully')
+    }
 
